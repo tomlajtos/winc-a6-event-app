@@ -13,7 +13,8 @@ export const FilterContextProvider = ({ children }) => {
   // helper for category filtering
   const hasFilterCategory = (catIds, catFilters) => {
     const filters = new Set(catFilters);
-    return catIds.filter((id) => filters.has(id));
+    catIds = Array.from(catIds);
+    return catIds.filter((id) => filters.has(Number(id)));
   };
 
   const filterEventsByCategories = (events) =>

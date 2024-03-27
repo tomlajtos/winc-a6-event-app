@@ -26,6 +26,16 @@ export const EditEventModal = () => {
   const { event, fetcher, editIsOpen, editOnClose, toast } = useEditEvent();
   const errors = fetcher.data?.errors;
   const toastIdRef = useRef(""); // ref to make toasts closable
+  let formattedCatids;
+  if (Array.isArray(event.categoryIds)) {
+    formattedCatids = event.categoryIds.map((id) => id.toString());
+  }
+  if (typeof event.categoryIds === "string") {
+    formattedCatids =
+      event.categoryIds.length === 1
+        ? [event.categoryIds]
+        : event.categoryIds.split(",");
+  }
 
   const defaultFormValues = {
     title: event.title,
@@ -34,7 +44,7 @@ export const EditEventModal = () => {
     endTime: generateDateTimeStr(event.endTime),
     location: event.location,
     description: event.description,
-    categoryIds: event.categoryIds.map((id) => id.toString()),
+    categoryIds: formattedCatids,
     image: event.image,
   };
 

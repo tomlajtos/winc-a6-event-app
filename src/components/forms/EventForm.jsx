@@ -10,6 +10,7 @@ import { SelectControl } from "./form-controlls/SelectControl";
 import { UrlInputControl } from "./form-controlls/UrlInputControl";
 
 export const EventForm = ({ as, id, method, defaultValues, errors }) => {
+  console.log("eventForm catids", defaultValues.categoryIds);
   return (
     <Stack
       as={as}

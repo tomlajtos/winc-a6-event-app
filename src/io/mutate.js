@@ -33,15 +33,15 @@ export const action = async ({ request, params, signal }) => {
       log.error(error);
       return error;
     }
-    // convert categoryIds from strings to numbers - to addhere to original events.json formatting
-    formData.categoryIds = formData.categoryIds
-      .split("")
-      .reduce((resArr, char) => {
-        if (char !== ",") {
-          resArr = [...resArr, Number(char)];
-        }
-        return resArr;
-      }, []);
+    // // convert categoryIds from strings to numbers - to addhere to original events.json formatting
+    // formData.categoryIds = formData.categoryIds
+    //   .split("")
+    //   .reduce((resArr, char) => {
+    //     if (char !== ",") {
+    //       resArr = [...resArr, Number(char)];
+    //     }
+    //     return resArr;
+    //   }, []);
 
     const response = await fetch(
       `http://127.0.0.1:3000/events/${params.eventId}`,

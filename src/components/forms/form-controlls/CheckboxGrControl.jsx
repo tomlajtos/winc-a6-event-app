@@ -19,6 +19,7 @@ export const CheckboxGrControl = ({
   const { categories } = useStaticData();
   const [groupValue, setGroupValue] = useState(defaultValue);
 
+  console.log("defv", defaultValue, "grv", groupValue);
   return (
     <FormControl as="fieldset" className="checkbox-group-control">
       <Text as="legend" fontWeight="bolder" pb={1}>
